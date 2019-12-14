@@ -105,7 +105,7 @@
 
 \chapter{Introducción: ¿Qué es Angular?}
 
-Angular es un framework de desarrollo para JavaScript creado por Google. La finalizar de este lengueje es facilitar el desarrollo de aplicaciones web SPA y además darnos herramientas para trabajar con los elementos de una web de una manera más sencilla e óptima. Además, permite separar de forma completa el front-end y el back-end de la aplicación. 
+Angular es un framework de desarrollo para JavaScript creado por Google. La finalidad de este lengueje es facilitar el desarrollo de aplicaciones web SPA y además darnos herramientas para trabajar con los elementos de una web de una manera más sencilla e óptima. Además, permite separar de forma completa el front-end y el back-end de la aplicación. 
 
 Las aplicaciones creadas en Angular pueden ser usadas en dispositivos móviles y de escritorio gracias a que es un framework cross-platform, usando el nodelo vista controlador (MVC) y la ejecución es llevada por el lado del cliente, provocando así que todo dependa en gran parte del navegador.  
 
@@ -127,11 +127,34 @@ En 2016 se lazó la primera versión estble de Angular2, conocida popularmente c
 \item \textbf{Modularidad:} Para desarrollar una nueva funcionalidad esta se empaqueta en un módulo, produciendo un núcleo más ligero y más rápido.
 \item \textbf{Compatibilidad:} Es compatible con los navegadores más modernos y recientes.
 \end{itemize}
+\chapter{Angular CLI}
+Angular CLI es una herramienta que nos ofrece Angular, nos facilita el proceso de inicio de cualquier aplicación Angular, ofrece el esqueleto de archivos y carpetas que vas a necesitar, junto con una cantidad de herramientas ya configuradas.  
+
+Es una herramienta NodeJS, es decir, para poder isntalarla necesitamos tener Node instalado. Además se instala vida "npm" que por lo general se instala al instalar Node. Debemos de tener en cuenta que ambas versiones se encuentren actualizados. 
+
+\section{Instalar Angular CLI}
+Para instalar Angular CLI ejecutamos el siguiente comando desde nuestro terminal:
+
+\begin{center}
+  npm install -g @angular/cli
+
+  \includegraphics{logos/Screenshot_1.png}
+\end{center}
+
+Una vez instalado, para crear el esqueleto de la aplicación usaremos el comando: 
+
+\begin{center}
+  ng new nombre_proyecto_angular
+
+  \includegraphics{logos/ng.png}
+\end{center}
+
+Esto nos creara una carpeta con el nombre que le hayamos puesto, además se instalarán y configurarán en el proyecto herramientas útiles para el desarrollo como pueden ser un servidor, herramientas de testing o para el despliegue entre otras. 
 
 \chapter{Instalación de Angular }
 Para poder usar Angular necesitaremos tener instalado NodeJS4, NPM3 o superior (que se instala en conjunto con NodeJS), y como recomandación, pero no obligación, GitHub y un editor de texto como puede ser Visual Estudio Code. 
 \\ \textbf{PASOS DE INSTALACIÓN}\\
-\textbf{1. Instalamos NodeJS y rpm}\\
+\textbf{1. Instalamos NodeJS y rpm} (Lo realizamos en el paso anterior)\\
 \textbf{2.Creamos una carpera con el nombre que deseemos, en mi caso a sido Proyecto\\ 3.Dentro de esa carpeta generamos los siguientes archivos:}
 \begin{itemize}
   \item \textbf{package.json:} Identifica las dependencias de paquetes npm para el proyecto.

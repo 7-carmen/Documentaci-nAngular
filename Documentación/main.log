@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.11.8)  19 NOV 2019 10:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7200 64-bit) (preloaded format=pdflatex 2019.11.8)  13 DEC 2019 09:57
 entering extended mode
 **c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/main.tex
 (c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/main.tex
@@ -355,10 +355,7 @@ Package: listings 2019/09/10 1.8c (Carsten Heinz)
 
 
 Writing note file main.ent
-(c:/Users\CST7\OneDrive\DAW2\Angular\Documentación\main.aux
-LaTeX Info: Redefining \. on input line 24.
-LaTeX Info: Redefining \% on input line 24.
-)
+(c:/Users\CST7\OneDrive\DAW2\Angular\Documentación\main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
@@ -414,7 +411,6 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 77.
 LaTeX Info: Redefining \pageref on input line 77.
 LaTeX Info: Redefining \nameref on input line 77.
- (c:/Users\CST7\OneDrive\DAW2\Angular\Documentación\main.out) (c:/Users\CST7\OneDrive\DAW2\Angular\Documentación\main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
@@ -426,7 +422,7 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
 \c@lstlisting=\count153
-<logos/angular.jpg, id=27, 225.84375pt x 225.84375pt>
+<logos/angular.jpg, id=3, 225.84375pt x 225.84375pt>
 File: logos/angular.jpg Graphic file (type jpg)
 <use logos/angular.jpg>
 Package pdftex.def Info: logos/angular.jpg  used on input line 87.
@@ -434,14 +430,7 @@ Package pdftex.def Info: logos/angular.jpg  used on input line 87.
  [1
 
 
-{C:/Users/CST7/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/logos/angular.jpg>] (c:/Users\CST7\OneDrive\DAW2\Angular\Documentación\main.toc
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 3.
-)
+{C:/Users/CST7/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/logos/angular.jpg>]
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
@@ -454,119 +443,195 @@ Cap\'{\i }tulo 1.
 
 ]
 Cap\'{\i }tulo 2.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 139.
+<logos/Screenshot_1.png, id=26, 916.1728pt x 73.77562pt>
+File: logos/Screenshot_1.png Graphic file (type png)
+<use logos/Screenshot_1.png>
+Package pdftex.def Info: logos/Screenshot_1.png  used on input line 141.
+(pdftex.def)             Requested size: 916.17056pt x 73.77542pt.
+
+Overfull \hbox (446.7001pt too wide) in paragraph at lines 141--142
+ [][] 
+ []
+
+c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/main.tex:147: Missing $ inserted.
+<inserted text> 
+                $
+l.147   ng new nombre_
+                      proyecto_angular
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 147.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 147.
+c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/main.tex:148: Missing $ inserted.
+<inserted text> 
+                $
+l.148 
+      
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/main.tex:148: Missing } inserted.
+<inserted text> 
+                }
+l.148 
+      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/main.tex:148: Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.148 
+      
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+<logos/ng.png, id=28, 601.4972pt x 127.22531pt>
+File: logos/ng.png Graphic file (type png)
+<use logos/ng.png>
+Package pdftex.def Info: logos/ng.png  used on input line 149.
+(pdftex.def)             Requested size: 601.49573pt x 127.22499pt.
+
+Overfull \hbox (132.02527pt too wide) in paragraph at lines 149--150
+ [][] 
+ []
+
+[4
+
+ <c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/logos/Screenshot_1.png> <c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/logos/ng.png>]
+Cap\'{\i }tulo 3.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 162.
 (C:\LaTex\tex/latex/base\omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 139.
- [4
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 162.
+ [5
 
 ]
-Overfull \hbox (5.53415pt too wide) in paragraph at lines 215--216
+Overfull \hbox (5.53415pt too wide) in paragraph at lines 238--239
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (149.53561pt too wide) in paragraph at lines 216--217
+Overfull \hbox (149.53561pt too wide) in paragraph at lines 239--240
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (293.53708pt too wide) in paragraph at lines 217--218
+Overfull \hbox (293.53708pt too wide) in paragraph at lines 240--241
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (149.53561pt too wide) in paragraph at lines 224--225
+Overfull \hbox (149.53561pt too wide) in paragraph at lines 247--248
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (83.53494pt too wide) in paragraph at lines 226--227
+Overfull \hbox (83.53494pt too wide) in paragraph at lines 249--250
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[5]
-<logos/comandos.png, id=156, 517.18219pt x 119.69719pt>
+LaTeX Info: Redefining \. on input line 263.
+LaTeX Info: Redefining \% on input line 263.
+[6]
+<logos/comandos.png, id=145, 517.18219pt x 119.69719pt>
 File: logos/comandos.png Graphic file (type png)
 <use logos/comandos.png>
-Package pdftex.def Info: logos/comandos.png  used on input line 245.
+Package pdftex.def Info: logos/comandos.png  used on input line 268.
 (pdftex.def)             Requested size: 517.18092pt x 119.69688pt.
 
-Overfull \hbox (72.7105pt too wide) in paragraph at lines 244--246
+Overfull \hbox (72.7105pt too wide) in paragraph at lines 267--269
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--246
+Underfull \hbox (badness 10000) in paragraph at lines 267--269
 
  []
 
-<logos/comandos2.png, id=158, 697.10437pt x 187.45032pt>
+<logos/comandos2.png, id=146, 697.10437pt x 187.45032pt>
 File: logos/comandos2.png Graphic file (type png)
 <use logos/comandos2.png>
-Package pdftex.def Info: logos/comandos2.png  used on input line 249.
+Package pdftex.def Info: logos/comandos2.png  used on input line 272.
 (pdftex.def)             Requested size: 697.10266pt x 187.44984pt.
 
-Overfull \hbox (252.63223pt too wide) in paragraph at lines 248--250
+Overfull \hbox (252.63223pt too wide) in paragraph at lines 271--273
 [] 
  []
 
-<logos/carpeta.png, id=159, 158.84344pt x 123.46124pt>
+<logos/carpeta.png, id=147, 158.84344pt x 123.46124pt>
 File: logos/carpeta.png Graphic file (type png)
 <use logos/carpeta.png>
-Package pdftex.def Info: logos/carpeta.png  used on input line 255.
+Package pdftex.def Info: logos/carpeta.png  used on input line 278.
 (pdftex.def)             Requested size: 158.84305pt x 123.46092pt.
-LaTeX Info: Redefining \. on input line 258.
-LaTeX Info: Redefining \% on input line 258.
-[6 <c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/logos/comandos.png> <c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/logos/comandos2.png> <c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/logos/carpeta.png>]
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 266.
+[7 <c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/logos/comandos.png> <c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/logos/comandos2.png> <c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/logos/carpeta.png>]
+LaTeX Font Info:    Trying to load font information for OML+cmr on input line 289.
  (C:\LaTex\tex/latex/base\omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 266.
- [7]
-<logos/contenido_carpeta.png, id=214, 143.78719pt x 302.63063pt>
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 289.
+LaTeX Info: Redefining \. on input line 342.
+LaTeX Info: Redefining \% on input line 342.
+ [8]
+<logos/contenido_carpeta.png, id=200, 143.78719pt x 302.63063pt>
 File: logos/contenido_carpeta.png Graphic file (type png)
 <use logos/contenido_carpeta.png>
-Package pdftex.def Info: logos/contenido_carpeta.png  used on input line 332.
+Package pdftex.def Info: logos/contenido_carpeta.png  used on input line 355.
 (pdftex.def)             Requested size: 143.78683pt x 302.62988pt.
-LaTeX Info: Redefining \. on input line 345.
-LaTeX Info: Redefining \% on input line 345.
- [8 <c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/logos/contenido_carpeta.png>]
-Underfull \hbox (badness 2913) in paragraph at lines 362--363
+ [9 <c:/Users/CST7/OneDrive/DAW2/Angular/Documentación/logos/contenido_carpeta.png>]
+Underfull \hbox (badness 2913) in paragraph at lines 385--386
 []\OT1/cmr/m/sc/10 ?`Cada cu[]anto so-le-mos re-no-var el m[]ovil en Es-pa[]na? \OT1/cmr/m/n/10 [[][]$\OT1/cmr/m/it/10 http : / / byemovil . com /
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 367.
-[9
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 390.
+[10
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 367.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 390.
  (c:/Users\CST7\OneDrive\DAW2\Angular\Documentación\main.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 367.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 367.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: DE2DADD5F763AC0D7FAA3A3581174F1C;411.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 367.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 390.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 390.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  D78D27F2F69E771A2AFEAE1A90679226;523.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 390.
  ) 
 Here is how much of TeX's memory you used:
- 10142 strings out of 492453
- 144226 string characters out of 3138671
- 296207 words of memory out of 3000000
- 14134 multiletter control sequences out of 15000+200000
+ 10147 strings out of 492453
+ 144120 string characters out of 3138671
+ 295698 words of memory out of 3000000
+ 14141 multiletter control sequences out of 15000+200000
  7335 words of font info for 26 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  46i,6n,37p,425b,1315s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/LaTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on c:/Users\CST7\OneDrive\DAW2\Angular\Documentación\main.pdf (9 pages, 239918 bytes).
+<C:/LaTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/LaTex/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on c:/Users\CST7\OneDrive\DAW2\Angular\Documentación\main.pdf (10 pages, 269813 bytes).
 PDF statistics:
- 336 PDF objects out of 1000 (max. 8388607)
- 176 named destinations out of 1000 (max. 500000)
- 74 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 325 PDF objects out of 1000 (max. 8388607)
+ 179 named destinations out of 1000 (max. 500000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
