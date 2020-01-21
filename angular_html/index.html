@@ -75,7 +75,7 @@
 								<header class="major">
 									<h3>Historia</h3>
 								</header>
-								<p >Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
+								<img src="images/historia.png" alt="" id="aplicacion>
 							</section>
 							<!-- TypeScript -->
 							<section id="TypeScript">
@@ -90,7 +90,7 @@
 									<li>Es un lenguaje multiplataforma.​</li>
 									<li>Fue adoptado como lenguaje principal desde la versión 2.0 de Angular hasta la versión actual.​</li>
 								</ul>						
-							<section>
+							</section>
 					</section>
 				<!-- Configuracion del entorno -->
 					<section id="configuracion">
@@ -125,6 +125,7 @@ ng serve --open</code></pre>
 						</header>
 						<p>El objetivo de nuestro curso será el de construir una aplicación en la cuál iremos viendo paso a paso los principales componentes de Angular​.<br/>
 						El resultado final de nuestra aplicación debería de ser algo parecido a la siguiente navegación: </p>
+						<img src="images/aplicacion.png" alt="" id="aplicacion">
 						<!-- Creo nuestro proyecto -->
 						<section id="crear">
 							<header class="major">
@@ -132,7 +133,7 @@ ng serve --open</code></pre>
 							</header>
 							<p >Con los comandos vistos anteriormente creamos nuestro nuevo proyecto con el nombre de angular-tour-of-heroes</p>
 							<pre><code>ng new angular-tour-of-heroes</code></pre>
-							<p<>Abrimos el servidor de la aplicación usando el comando: </p>
+							<p>Abrimos el servidor de la aplicación usando el comando: </p>
 							<pre><code>ng serve --open</code></pre>
 							<p>Se ha de tener en cuenta que para ejecutar este comando debemos de estar en la consola dentro de la carpeta que contiene el proyecto</p>
 							<p>Al crear la aplicación se nos generarán los componentes necesarios para la aplicación.<br/>
@@ -149,35 +150,313 @@ ng serve --open</code></pre>
 							<header class="major">
 								<h3>Primeros cambios</h3>
 							</header>
-							<p >Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
+							<ol>
+								<li>Primeros cambios:
+									<ol>
+										<li>Cambiar el titulo de nuestra aplicación:
+											<ul>
+												<li>Abtimos el archivo <strong>App.component.ts</strong> y cambiamos el valor del titulo por el de "Tour of Heroes"</li>
+												<li>Después nos vamos al archivo <strong>App.component.html</strong> y ponemos un titulo con el contenido de titulo:</li>
+												<pre><code>&lt;h1&gt;{{title}}&lt;/h1&gt;</code></pre>	
+												<li>Por ultimo para poder ver los heroes que se encuentran en nuestro compoente agregaremos la app de heroes:</li>
+												<pre><code>&lt;h1&gt;{{title}}&lt;/h1&gt;
+&lt;app-heroes&gt;&lt;/app-heroes&gt;</code></pre>
+												<li>Si el servidor esta aun activo, automanticamente le navegador deberia de recargarse y mostrar el titulo de la aplicación con el nombre del Heroe</li>
+											</ul>
+										</li>
+										<li>Agregar estilos a la aplicación: 
+											<ul>
+												<li>Para ello nos vamos al archivo styles.css que creo el coponente CLI automanticamente al crear nuestro proyecto y agregamos el siguiente código: </li>
+												<pre><code>/* Application-wide Styles */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  margin: 2em;
+}
+  body, input[type="text"], button {
+  color: #333;
+  font-family: Cambria, Georgia;
+}
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}</code></pre>
+											</ul>
+										</li>
+									</ol>
+								</li>
+							</ol>
 						</section>
 						<!-- Crear el componente heroe -->
 						<section id="componenteheroe">
 							<header class="major">
 								<h3>Crear el componente Heroe</h3>
 							</header>
-							<p >Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
+							<p >En este punto nuestra aplicación tiene un titulo básico. Ahora vamos a crear un nuevo componente para mostrar información del héroe y colocar ese componente e</p>
+							<ol>
+								<li>Creamos el componente Hereos usando el siguiente comando: </li>
+								<pre><code>ng generate component heroes</code></pre>
+								<p>Esto nos generará una nueva carpeta que podremos encontrar en src/app/heroes y que contendrán tres archivos HeroesComponent junto con un archivo de prueba</p>
+								<p>El HeroesComponent tendrá el siguiente aspecto: </p>
+								<pre><code>import { Component, OnInit } from '@angular/core'
+@Component({
+  selector: 'app-heroes',
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css']
+})
+export class HeroesComponent implements OnInit {
+
+  constructor() { }
+									
+  ngOnInit() {
+}</code></pre>
+									<p>Este archivo siempre importa el componente de la bibliteca central de Angular y añade la clase con el .@component</p>
+									<p>El @component es una función decoradora que especifica los metadados angulares para el componente. El CLI generó tres propiedades de metadatos: </p>
+									<ul>
+										<li><strong>Selector -></strong> el selector de elementos CSS del componente</li>
+										<li><strong>TemplateUrl -></strong> la ubacación del archivo de plantilla del componente </li>
+										<li><strong>StyleUrls -></strong> la ubicación de los estilos CSS privados del componente</li>
+									</ul>
+									<p>El selector de elementos CSS , 'app-heroes', coincide con el nombre del elemento HTML que identifica este componente dentro de la plantilla de un componente de los padres.</p>
+									<p>El ngOnInit()es un gancho de ciclo de vida . Realizada las llamadas de los componentes, por lo que es aquí donde se deben inicializar los componentes.</p>
+									<li>Agregar una propiedad Héroe:</li>
+									<p>Vamos agregar una propiedad heroe demtro del heroes.component.ts para ella añadimos el siguiente código:</p>
+									<pre><code>hero = "Windstorm";</code></pre>
+									<li>Mostrar el héroe: </li>
+									<p>Ahora abriremos el heroes.component.html y sustituiremos el texto predeterminado por la propiedad héroe</p>
+									<pre><code>{{hero}}</code></pre>
+									<li>Mostrar el componente Héreo en la vista:</li>
+									<p>Para poder mostrar el componente Héreo debemos agregarlo a la plantilla App.Component </p>
+									<p>Recuerda que el App-heroes es el selector de elementos para el HeroesComponent, por lo  tanto se debe agregar un &lt;app-heroes&gt; justo debajo del titulo</p>
+									<pre><code>&lt;h1&gt;{{title}}&lt;/h1&gt;
+&lt;app-heroes&gt;&lt;/app-heroes&gt;</code></pre>
+									<p>Llegados a este punto si el servidor esta levantado el navegador automanticamente actualizará la web y se mostrará tanto el titulo de la aplicación como el nombre del héroe.</p>
+									<li>Crear una clase Héroe: </li>
+									<p>Ahora vamos a crear una clase Héroe y le vamos a añadir un id y un nombre. Para ello abrimos el archivo hero.ts y incluimos el siguiente código:  </p>
+									<pre><code>export class Hero {
+  id: number;
+  name: string;
+}</code></pre>
+									<p>Ahora regresamos a la clase del componente Heroe e importamos la clase Héroe. Dale valores al id y al nombre. Al final el resultado del archivo debería de ser algo parecido al siguiente códdigo:</p>
+									<pre><code>import { Component, OnInit } from '@angular core';
+import { Hero } from '../hero';
+										
+@Component({
+  selector: 'app-heroes',
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css']
+})
+export class HeroesComponent implements OnInit {
+  hero: Hero = {
+  id: 1,
+  name: 'Windstorm'
+};
+										
+constructor() { }
+										
+ngOnInit() {
+}
+										
+}</code></pre>
+								 <p>Llegado a este punto verás que tu página ahora no carga bien, porque es necesario que mostremos el objeto Héroe, que veremos en el siguiente punto:</p>
+								 <li>Mostrar los objetos:</li>
+								 <p>Para que el objeto se muestre en la página deberemos actualizar la plantilla por lo que abriremos el archivo heroes.component.html y actualizaremos el código al siguiente:</p>
+								 <pre><code>&lt;h2&gt;{{hero.name}} Details&lt;h2&gt; 
+&lt;div&gt;&lt;span&gt;id: &lt;span&gt;{{hero.id}}&lt;/div&gt; 
+&lt;div&gt;&lt;span&gt;name: &lt;span&gt;{{hero.name}}&lt;/div&gt;</code></pre>
+								 <p>Si queremos que el nombre del Héreo salga formateado en mayusculas usaremos las tuverias (|) para formatearlo con el UpperCase.<br/>Las canalizaciones son una buena forma de formatear cademas de texto, fechas, importes de menoda etc de forma sentilla y rápida</p>
+								 <pre><code>&lt;h2&gt;{{hero.name | uppercase}} Details&lt;h2&gt; </code></pre>
+								 <li>Editar el héroe:</li>
+								 <p>Lo siguiente que queremos hacer es que el héreo sea editable para los usuarios de nuestra aplicación. El objetivo es que la propiedad nombre se cambie conforme el usuario vaya escribien el nuevo nombre en la opción de editar, para ello necesitaremos construir un enlace de datos bidimensional entre el input del formulario y la propiedad nombre del héreo. <br/>Para ello deberemos irnos al archivo heroes.component.html y cambiar el área de los detalles por el siguiente código:</p>
+								 <pre><code>&lt;div>
+  &lt;label>name:
+    &lt;input [(ngModel)]="hero.name" placeholder="name"/>
+  &lt;label>
+&lt;div></code></pre>
+							<p>El ngModel es la sintaxis que usa Angular para el enlace de datos. De esta forma vincula la propiedad nombre del héroe al cuadro HTML para que los datos puedan fluir en ambas direcciones.<br/>Si intentamos ahora actualizar la página veremos que no funciona, esto es por que es necesaria agregar el módulo ya qye aunque Angular incorporá esto no la trae activa por defecto, para ello necesitaremos importar el módulo.<br/>Cuando creamos el proyecto la herramienta CLI nos genero un archivo llamado <strong>app.module.ts</strong>, este archivo contiene los módulos implementados en nuestra aplicación, por lo que abriremos este archivo e incorporaremos la siguiente sentencia al código:</p>
+							<pre><code>import { FormsModule } from '@angular/forms'; // <-- NgModel lives here</code></pre>	
+							<p>Luego tendremos que agregar el FormsModule en la matriz de datos, para ello una la parte de imports añadiremos lo siguiente: </p>
+							<pre><code>imports: [
+  BrowserModule,
+  FormsModule
+],</code></pre>
+							<p>Ahora es hora de probar como al editar el nombre del héroe se actualiza al mismo tiempo la propiedad nombre.<br/><br/>Por último debemos de tener en cuenta lo siguiente, todo componente debe estar declarado en el NgModule, y aunque nosotros no lo hemos hecho la aplicación a funcionado correctamente, esto se debe a que la herramienta CLI declaró el componente Héroe en AppModele cuando se generó el componente, es hora de abrir el archivo app.module.ts y veremos el componente Héroe importado en la parte superior del archivo y Después encontraremos en las declaraciones el HeroesComponent.</p>
+							</ul>
+							</li>
+							</ol>
 						</section>
 						<!-- Crear listas -->
 						<section id="listas">
 							<header class="major">
 								<h3>Crear listas</h3>
 							</header>
-							<p >Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
+							<p>En este punto crearemos una lista de héroes y permitirá a los usuarios seleccionar un héroe y mostrar los detalles sobre él</p>
+							<ol>
+								<li>Crear una lista de héroes:</li>
+								<p>Lo primero que vamos a hacer es simular una lista de héroes, normalmente recibiriamos estos datos de un servidor remoto, pero para probar a hacer listas nosotros solo lo simularemos. <br/>Así que crearemos un archivo llamado mock-heroes.ts dentro de la carpeta <strong>src/app</strong> y crea como unos diez héroes aproximadaente como mostramos en el siguiente ejemplo</p>
+								<pre><code>import { Hero } from './hero';
+
+export const HEROES: Hero[] = [
+  { id: 11, name: 'Dr Nice' },
+  { id: 12, name: 'Narco' },
+  { id: 13, name: 'Bombasto' },
+  { id: 14, name: 'Celeritas' },
+  { id: 15, name: 'Magneta' },
+  { id: 16, name: 'RubberMan' },
+  { id: 17, name: 'Dynama' },
+  { id: 18, name: 'Dr IQ' },
+  { id: 19, name: 'Magma' },
+  { id: 20, name: 'Tornado' }
+];</code></pre>
+							<li>Mostrar los héreos de la lista:</li>
+							<p>Ahora deberemos de abrir el archivo heroes.component.ts y importaremos la lista que hemos simulado</p>
+							<pre><code>export class HeroesComponent implements OnInit {
+
+  heroes = HEROES;
+}</code></pre>
+							<li>Usar el componente ngFor para mostrar las listas:</li>
+							<p>Ahora nos iremos al heroes.component.html y deberemos de añadir el código necesario para mostrar la lista<br/>Primero veremos la parte sencilla, que sería mostrar a un único héroe, el código sería el siguiente:</p>
+							<pre><code>&lt;h2>My Heroes&lt;h2>
+&lt;ul class="heroes">
+  &lt;li>
+    &lt;span class="badge">{{hero.id}}&lt;span> {{hero.name}}
+  &lt;li>
+&lt;ul></code></pre>
+							<p>Si queremos mostrar todos los héreos deberemos de modificar la siguiente linea de código:</p>
+							<pre><code>&lt;li *ngFor="let hero of heroes">&lt;li></code></pre>
+							<li>Darle estilo a la lista de héroes:</li>
+							<p>Como todas las cosas, con belleza y buen CSS es más fácil de ver, por ello llegados a este punto le daremos un estilo a las listas para que se vean bonitas y entren por los ojos. <br/>Para ello en primer lugar nos heremos al archivo heroes.component.css y añadimos el siguiente código:</p>
+							<pre><code>/* HeroesComponent's private CSS styles */
+.heroes {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+.heroes li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+.heroes li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.heroes li.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+.heroes li.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+}
+.heroes .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color:#405061;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}</code></pre>
+							<li>Agregar el evento para ver los detalles del héroe:</li>
+							<p>Ahora vamos a gregar el evento de raton al hacerl click para ver los detalles del héroe. Para ello deberemos modificar la siguiente linea del código dentro del archivo heroes.component.html </p>
+							<pre><code>&lt;li *ngFor="let hero of heroes" (click)="onSelect(hero)">&lt;li></code></pre>
+							<p>Los parentesis del click es el encargado de decirle a Angular que debe escuchar el evento, cuando el usuario hace click sobre el &lt;li> se ejecuta el onSelect<br/>Por tanto lo siguiente que debemos hacer es definir el método onSelect para ello nos iremos al archivo heroes.component.ts y agregaremos las siguientes lineas al código:</p>
+							<pre><code>selectedHero: Hero;
+onSelect(hero: Hero): void {
+ this.selectedHero = hero;
+}</code></pre>
+							<p>Ahora necesitaremos añadir un sección que sea la de detalles para ello nos iremos al archivo heroes.component.html y modificaremos el código para que quede de la siguiente manera: </p>
+							<pre><code>&lt;h2>{{selectedHero.name | uppercase}} Details&lt;h2>
+&lt;div>&lt;span>id: &lt;span>{{selectedHero.id}}&lt;div>
+&lt;div>
+  &lt;label>name:
+   &lt;input [(ngModel)]="selectedHero.name" placeholder="name"/>
+  &lt;label>
+&lt;div></code></pre>
+							<p>¿Qué pasará ahora si recargas la página? Efectivamente, la página se rompe y no carga ¿Por qué? Pues por el simple hecho de que al cargar la página no hay nigún héroe seleccionado, por lo tanto el valor no existe y no sabe que debe de mostrar.<br/>¿La solución? Vamos a añadir la directiva ngIf para que los detalles no se muestren si no hay detalles como mostrar. Para ello modificaremos el código:</p>
+							<pre><code>&lt;div *ngIf="selectedHero">
+
+&lt;h2>{{selectedHero.name | uppercase}} Details&lt;/h2>
+  &lt;div>&lt;span>id: &lt;span>{{selectedHero.id}}&lt;div>
+  &lt;div>
+    &lt;label>name:
+      &lt;input [(ngModel)]="selectedHero.name" placeholder="name"/>
+	&lt;label>
+  &lt;div>
+							  
+&lt;div></code></pre>
+							<li>Dar estilo al héroe seleccionado:</li>
+							<p>Para ello modificamos en el HTML la siguiente parte del código, no nos hará falta modificar el CSS por que ya incluimos el estilo para los selected anteriormente</p>
+							<pre><code>&lt;li *ngFor="let heroof heroes"
+  [class.selected]="hero === selectedHero"
+  (click)="onSelect(hero)">
+   &lt;span class="badge">{{hero.id}}&lt;span> {{hero.name}}
+&lt;li></code></pre>
+						</ol>
 						</section>
 						<!-- Componentes maestros -->
 						<section id="componentes">
 							<header class="major">
 								<h3>Componentes maestros</h3>
 							</header>
-							<p >Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
+							<p>De momento en nuestra aplicacion el componente Héroes muestra tanto la lista de héroes como sus detalles, pero siendo realistas en una aplicaciíon grende no sería optimo que un componente fuera demasiado grande, sino que sería mejor dividirlo en subcomponente, donde cada componente estuviera enfocado a una tarea o flujo de trabajo especifico. <br/> Por eso, ahora vamos a dividir las tareas de nuestro componente, por lo tanto la opción de los detalleas la colocaremos en un nuevo componente que crearemos usando el comando: </p>
+							<pre><code>ng generate component hero-detail</code></pre>
+							<p>Este archivo nos creará la carpeta /src/app/hero-detael con 4 archivos dentro, el CSS, el HTML, el .TS y un archivo de prueba para la clase<br/>Ahora abre tu HeroesComponent.html y corta el siguiente trozo de código y pegalo en el Heroes-detail.component.html</p>
+							<pre><code>&lt;div *ngIf="hero">
+
+  &lt;h2>{{hero.name | uppercase}} Details&lt;h2>
+  &lt;div>&lt;span>id: &lt;span>{{hero.id}}&lt;/div>
+  &lt;div>
+	&lt;label>name:
+	  &lt;input [(ngModel)]="hero.name" placeholder="name"/>
+	&lt;label>
+  &lt;div>
+							  
+&lt;div></code></pre>
+							<ol>
+								<li>Agregar el input a la propiedad Héroe y mostrarlo:</li>
+								<p>Ahora ambas plantillas se unen puesto que ambas son de tipo Hero. Por ello necesitamos abrir el hero-detail.component.ts e importarlo</p>
+								<pre><code>import { Hero } from '../hero';</code></pre>
+								<p>Ahora la propiedad Hero debe de convertirse en una propiedad de entrada, anotada con un decorador, porque el externo se unira a ella a través del input. Para ello añade los siguientes códigos. <br/>Al final del heroes.component.htm</p>
+								<pre><code>&lt;app-hero-detail [hero]="selectedHero">&lt;app-hero-detail></code></pre>
+								<p>hero-detail.component.ts importa em la parte superior:</p>
+								<pre><code>import { Component, OnInit, Input } from '@angular/core';</code></pre>
+								<p>Y por último en el mismo archivo, añada debajo del export class el siguiente código:</p>
+								<pre><code>@Input() hero: Hero;</code></pre>
+							</ol>
 						</section>
 						<!-- Servicios -->
 						<section id="servicios">
 							<header class="major">
 								<h3>Servicios</h3>
 							</header>
-							<p >Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
+							<p>Ahora mismo nuestra aplicación esta obteniendo y mostrando datos "falsos". Entonces, ¿porque añadirles servicios?<br/>Añadiendo servicios a la aplicación los componentes no deberán buscar ni guardar datos directamente sino que delegarán al servicio ese trabajo. Ahora vamos a crear un servicio que será usado por todas las clases <br/> Los servicios son una excelente manera de compartir información entre clases que no se conocen entre sí . Por eso crearemos un MessageServicee y lo inyectaremos en dos lugares:</p>
+								<ol>
+									<li>En el HeroServiceque utiliza el servicio para enviar un mensaje</li>
+									<li>En el MessagesComponentque muestra ese mensaje</li>
+								</ol>
+							
 						</section>
 						<!-- Enrutamiento -->
 						<section id="enrutamiento">
