@@ -524,14 +524,32 @@ getHeroes(): Hero[] {
 							<li>Añadir getHeroes():</li>
 						</ol>
 						<p>Cree dentro del archivo heroes.component.ts un función para recuperar los héroes del servicio:</p>
+						<p>Ahora abriremos el archivo HeroesComponent y eliminaremos la siguiente importación</p>
+						<pre><code><import { HeroService } from '../hero.service';/code></pre>
+						<p>Y lo remplazamos por el siguiente código:</p>
+						<pre><code>heroes: Hero[];</code></pre>
+						<ol type="1" start="5">
+							<li>Inyectar el servicio Héroe:</li>
+						</ol>
+						<p>Agrega un parámetro privado al constructor heroService dentro del archivo heroes.component.ts</p>
+						<pre><code>constructor(private heroService: HeroService) { }</code></pre>
+						<p>Este parámetro define simultáneamente una prpiedad privada y la identifica como un sitio de inyección. Cuando Angular crea un sistema de insercción de dependencias establece el parámetro en la instancia singleton de HeroesComponentService</p>
+						<ol type="1" start="6">
+							<li>Añadir getHeroes():</li>
+						</ol>
+						<p>Crearemos una función para recuperar los héroes del servicio:</p>
 						<pre><code>getHeroes(): void {
   this.heroes = this.heroService.getHeroes();
 }</code></pre>
 						<ol type="1" start="7">
-							<li>Llámalo con ngOnInit:</li>
+							<li>Llamarlo con ngOnInit():</li>
 						</ol>
-						<p></p>
-						</section>
+						<p>Aunque podriamos llamar al constructor no es una praáctica recomendada por lo que en su lugar vamos a usar ngOnInit que se encargará de llamar al constructor en el momento adecuado para ello dentro del archivo heros.component.ts incorporaremos el siguiente código:</p>
+						<pre><code>ngOnInit() {
+  this.getHeroes();
+}</code></pre>
+						<p>Ahora mismo nuestra aplicación funciona, pero en una aplicación real no funcionaría, funciona por que nuestro servicio esta devolviendo héroes simulados pero si tuviera que recuperarlos de un servidor remoto esto no funcionaria.</p>
+					    </section>
 						<!-- Enrutamiento -->
 						<section id="enrutamiento">
 							<header class="major">
