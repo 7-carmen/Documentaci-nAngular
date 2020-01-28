@@ -510,6 +510,27 @@ getHeroes(): Hero[] {
 						<ol type="1" start="4">
 							<li>Actulizar el compoente Héroe:</li>
 						</ol>
+						<p>Abiremos el archivo de clase Heroes.component.ts, eliminamos la importación que hicimos anteriormente por que ya no la necesitaremos</p>
+						<pre><code>import { HeroService } from '../hero.service';</code></pre>
+						<p>Y en su lugar inserte la siguiente linea de código:</p>
+						<pre><code>heroes: Hero[];</code></pre>
+						<ol type="1" start="5">
+							<li>Inyectar el HeroService:</li>
+						</ol>
+						<p>Ahora debemos agregar un parámetro privado de tipo al constructor en el mismos archivo:</p>
+						<pre><code>constructor(private heroService: HeroService) { }</code></pre>
+						<p>Este parámetro define simultáneamente una propiedad privada y la identifica como un sitio de inyección<br/>Angular crea un sistema del insercción de dependencias que establece el parámetro en la instancia</p>
+						<ol type="1" start="6">
+							<li>Añadir getHeroes():</li>
+						</ol>
+						<p>Cree dentro del archivo heroes.component.ts un función para recuperar los héroes del servicio:</p>
+						<pre><code>getHeroes(): void {
+  this.heroes = this.heroService.getHeroes();
+}</code></pre>
+						<ol type="1" start="7">
+							<li>Llámalo con ngOnInit:</li>
+						</ol>
+						<p></p>
 						</section>
 						<!-- Enrutamiento -->
 						<section id="enrutamiento">
