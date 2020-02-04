@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
   <title>Angular</title>
 
   <!-- Bootstrap core CSS -->
@@ -20,8 +21,6 @@
   <!-- Custom styles for this template -->
   <link href="css/resume.min.css" rel="stylesheet">
 
-  <!--ClipBoard-->
-  <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -125,12 +124,12 @@
               <li>Comprobamos a través de consola si Node se instalo correctamente usando el comanod:</li>
             </ol>
             <br/>
-              <pre><code>node -v</code></pre>
+              <pre><code>node -ven</code></pre>
             <ol type="1" start="3">
               <li>Comprobamos que al instalar Node se nos instalará el paquete npm con el comando: </li>
             </ol>
             <br/>
-            <pre><code>npm -v</code></pre>
+            <pre><code>npm -ven</code></pre>
           </li>
           <li>Instalamos Angular CLI a través del comando: </li>
         </ol>
@@ -778,7 +777,7 @@ this.getHeroes();
 <p>Idealmente, los usuarios deberían poder hacer clic en un enlace para navegar en lugar de pegar una URL en la barra de direcciones. Agrega un elemento &lt;nav> y, dentro de eso, un elemento de anclaje que, al hacer clic, active la navegación hacia HeroesComponent. La plantilla AppComponent revisada se ve así:</p>
 <pre><code>&lt;h1>{{title}}&lt;h1>
 &lt;nav>
-  &lt;a routerLink="/heroes">Heroes&lt;a>
+  &lt;a routerLink="/heroes">Heroes<a>
 &lt;nav>
 &lt;router-outlet>&lt;router-outlet>
 &lt;app-messages>&lt;app-messages></code></pre>
@@ -1038,7 +1037,7 @@ getHero(): void {
   <li>Agregar HeroService.getHero():</li>
 </ol>
 <p>Abre el hero.service.ts y agrega el siguiente método:</p>
-<pre><code>getHero(id: number): Observable&lt;Hero> {
+<pre><code>getHero(id: number): Observable<Hero> {
   // TODO: send the message _after_ fetching the hero
   this.messageService.add(`HeroService: fetched hero id=${id}`);
   return of(HEROES.find(hero => hero.id === id));
@@ -1062,467 +1061,7 @@ getHero(): void {
   <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="http">
     <div class="w-100">
       <h2 class="text-primary">HTTP</h2>
-    <p>En esta última parte del tutorial vamos a agregar las siguientes caracteristicas: </p>
-    <ul>
-      <li>Obtener datos del héroe con solicitudes HTTP</li>
-      <li>Permitir a los usuarios agregar, editar y eliminar héroes y guardos estos cambios a través de HTTP</li>
-      <li>Permitir a los usuarios buscar héroes por nombre</li>
-    </ul>
-    <ol type="1" start="1">
-      <li>Habilitar servicios HTTP:</li>
-    </ol>
-    <p>HttpClient es el mecanismo de Angular para comunicarse con un servidor remoto a través de HTTP. Tenemos que hacer que este disponible en cualquier lugar de la aplicación en dos pasos. En primer lugar, lo agregaremos a la raíz importando el módulo: (Importalo dentro del archivo app.module.ts)</p>
-    <pre><code>import { HttpClientModule }    from '@angular/common/http';</code></pre>
-    <p>A continuación, dentro del mismo archivo añade el siguiente trozo de código:</p>
-    <pre><code>@NgModule({
-      imports: [
-        HttpClientModule,
-      ],
-    })</code></pre>
-    <ol type="1" start="2">
-      <li>Simular un servidor de datos:</li>
-    </ol>
-    <p>En este momento no disponemos de un servidor real, para poder imitar ese comportamiento instalaremos un módulo a la que se le realizará solicitudes y recibirá respuestas de una API web que se encuentra en memoria.</p>
-    <ol type="I" start="1">
-      <li>Instalar el paquete de API desde la consula con el siguiente comando:</li>
-    </ol>
-    <pre><code>npm install angular-in-memory-web-api --save</code></pre>
-    <ol type="I" start="2">
-      <li>Importar la clase dentro del archivo app.module.ts:</li>
-    </ol>
-    <pre><code>import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-      import { InMemoryDataService }  from './in-memory-data.service';</code></pre>
-      <ol type="I" start="3">
-        <li>Agregar la matriz y configurarla dentro del app.module.ts:</li>
-      </ol>
-    <pre><code>HttpClientModule,
-
-      // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-      // and returns simulated server responses.
-      // Remove it when a real server is ready to receive requests.
-      HttpClientInMemoryWebApiModule.forRoot(
-        InMemoryDataService, { dataEncapsulation: false }
-      )</code></pre>
-    <p>El método de configuración toma una clase que prepara la base de datos en memoria.forRoot()InMemoryDataService</p>
-    <ol type="I" start="4">
-      <li>Generar la clase con el siguiente comando:</li>
-    </ol>
-    <pre><code>ng generate service InMemoryData</code></pre>
-    <ol type="I" start="5">
-      <li>Reemplace el contenido predeterminado del archivo in-memory-data.service.ts por el siguiente contenido:</li>
-    </ol>
-    <pre><code>import { InMemoryDbService } from 'angular-in-memory-web-api';
-      import { Hero } from './hero';
-      import { Injectable } from '@angular/core';
-      
-      @Injectable({
-        providedIn: 'root',
-      })
-      export class InMemoryDataService implements InMemoryDbService {
-        createDb() {
-          const heroes = [
-            { id: 11, name: 'Dr Nice' },
-            { id: 12, name: 'Narco' },
-            { id: 13, name: 'Bombasto' },
-            { id: 14, name: 'Celeritas' },
-            { id: 15, name: 'Magneta' },
-            { id: 16, name: 'RubberMan' },
-            { id: 17, name: 'Dynama' },
-            { id: 18, name: 'Dr IQ' },
-            { id: 19, name: 'Magma' },
-            { id: 20, name: 'Tornado' }
-          ];
-          return {heroes};
-        }
-      
-        // Overrides the genId method to ensure that a hero always has an id.
-        // If the heroes array is empty,
-        // the method below returns the initial number (11).
-        // if the heroes array is not empty, the method below returns the highest
-        // hero id + 1.
-        genId(heroes: Hero[]): number {
-          return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
-        }
-      }</code></pre>
-      <ol type="1" start="3">
-        <li>Héroes y HTTP:</li>
-      </ol>
-      <p>En primer lugar abre el archivo hero.service.ts e importe el siguiente código:</p>
-      <pre><code>import { HttpClient, HttpHeaders } from '@angular/common/http';</code></pre>
-      <p>Inyecta en el mismo archivo el constructor con una propiedad privada llamada HeroServiceHttpClienthhtp</p>
-      <pre><code>constructor(
-        private http: HttpClient,
-        private messageService: MessageService) { }</code></pre>
-      <p>Ahora envolveremos el método para poder llamarlo con frecuencia</p>
-      <pre><code>/** Log a HeroService message with the MessageService */
-        private log(message: string) {
-          this.messageService.add(`HeroService: ${message}`);
-        }</code></pre>
-      <p>Por último define el formulario con la dirección del recurso héroes del servidor.</p>
-      <pre><code>private heroesUrl = 'api/heroes';  // URL to web api</code></pre>
-      <ol type="1" start="4">
-        <li>Conseguir héroes con HttpClient:</li>
-      </ol>
-      <p>La corriente utiliza la función RxJS para devolver una matriz de héroes ficticios como un archivo .HeroService.getHeroes()of()Observable&lt;Hero[]>, ahora modifica el siguiente trozo de código:</p>
-      <pre><code>getHeroes(): Observable&lt;Hero[]> {
-        return of(HEROES);
-      }</code></pre>
-      <p>Y modificalo para usarlo del a siguiente manera:</p>
-      <pre><code>/** GET heroes from the server */
-        getHeroes (): Observable&lt;Hero[]> {
-          return this.http.get&lt;Hero[]>(this.heroesUrl)
-        }</code></pre>
-    <p>Actualiza el explorador. Los datos del héroe deben cargarse correctamente desde el servidor ficticio.</p>
-    <ol type="1" start="5">
-      <li>Manejo de errores:</li>
-    </ol>
-    <p>Las cosas van mal, especialmente cuando se obtienen datos de un servidor remoto. El método debe detectar errores y hacer algo para resolverlos. Importe el siguiente código dentro del archivo hero.service.ts</p>
-    <pre><code>import { catchError, map, tap } from 'rxjs/operators';</code></pre>
-    <p>Ahora extienda el resultado con el método:</p>
-    <pre><code>getHeroes (): Observable&lt;Hero[]> {
-  return this.http.get&lt;Hero[]>(this.heroesUrl)
-    .pipe(
-      catchError(this.handleError&lt;Hero[]>('getHeroes', []))
-    );
-}</code></pre>
-<p>El operador intercepta un Observable que falló. Pasa el error un controlador de errores que puede hacer lo que quiere con el error. El método siguiente notifica el error y, a continuación, devuelve un resultado inocuo para que la aplicación siga funcionando<br/>Añade el siguiente código para qye en lugar de controlar errores directamente, devuelvan una función de controlador de errores que se ha configurado con el nombre de la operación que ha fallado:</p>
-<pre><code>/**
-  * Handle Http operation that failed.
-  * Let the app continue.
-  * @param operation - name of the operation that failed
-  * @param result - optional value to return as the observable result
-  */
- private handleError&lt;T> (operation = 'operation', result?: T) {
-   return (error: any): Observable&lt;T> => {
- 
-     // TODO: send the error to remote logging infrastructure
-     console.error(error); // log to console instead
- 
-     // TODO: better job of transforming error for user consumption
-     this.log(`${operation} failed: ${error.message}`);
- 
-     // Let the app keep running by returning an empty result.
-     return of(result as T);
-   };
- }</code></pre>
- <ol type="1" start="6">
-  <li>Aproveche el Observable:</li>
-</ol>
-<p>Los métodos aprovecharán el flujo de valores observables y enviarán un mensaje, a través del método, al área de mensaje en la parte inferior de la página. Lo harán con el operador RxJS, que examina los valores observables, hace algo con esos valores y los pasa. La devolución de llamada no toca los valores en sí. Aquí está la versión final:</p>
-<pre><code>/** GET heroes from the server */
-  getHeroes (): Observable&lt;Hero[]> {
-    return this.http.get&lt;Hero[]>(this.heroesUrl)
-      .pipe(
-        tap(_ => this.log('fetched heroes')),
-        catchError(this.handleError&lt;Hero[]>('getHeroes', []))
-      );
-  }</code></pre>
-  <ol type="1" start="7">
-    <li>Obtener héroe por Id:</li>
-  </ol>
-  <p>La mayoria de las API web admiten solicitudes con el id, por eso vamos a actualizar el método para poder realizar la petición a través de su Id para recurperar la información</p>
-  <pre><code>/** GET hero by id. Will 404 if id not found */
-    getHero(id: number): Observable&lt;Hero> {
-      const url = `${this.heroesUrl}/${id}`;
-      return this.http.get&lt;Hero>(url).pipe(
-        tap(_ => this.log(`fetched hero id=${id}`)),
-        catchError(this.handleError&lt;Hero>(`getHero id=${id}`))
-      );
-    }</code></pre>
-    <p>Tenemos dos diferencias significativas con respecto al getHeroes()</p>
-    <ul>
-      <li>getHero() construye una URL de solicitud con el identificador del héroe deseado.</li>
-      <li>El servidor ahora responde con un único héroe</li>
-    </ul>
-    <ol type="1" start="8">
-      <li>Actualizar Héroers:</li>
-    </ol>
-    <p>En este putno nuestra intención es poder editar el nombre de un héroe desde su vista detalle, y que a medida que vayas escribiendo también se actualice el titulo del héroe que tenemos en la parte superior de la página. Para ello vamos a añadir un botón de guardar al final de la plantilla (hero-detail.component.html)</p>
-    <pre><code>&lt;button (click)="save()">save&lt;button></code></pre>
-    <p>Ahora en la clase del componente (hero-detail.component.ts) agrega el siguiente método para conservar los cambios del nombre</p>
-    <pre><code>save(): void {
-      this.heroService.updateHero(this.hero)
-        .subscribe(() => this.goBack());
-    }</code></pre>
-    <ul>
-      <li>Añadir HeroService.updateHero():</li>
-    </ul>
-    <p>Ahora dentro del archivo hero.service.ts debemos de añadir el método para conservar el héroe cambiado en el servidor. Agrega el siguiente código:</p>
-    <pre><code>/** PUT: update the hero on the server */
-      updateHero (hero: Hero): Observable&lt;any> {
-        return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-          tap(_ => this.log(`updated hero id=${hero.id}`)),
-          catchError(this.handleError&lt;any>('updateHero'))
-        );
-      }</code></pre>
-    <p>La API espera un encabezado especial para los solicitudes de guardado HTTP para definirla nos iremos al archivo hero.servide.ts y añadiremos el siguiente código:</p>
-    <pre><code>httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-    };</code></pre>
-    <ol type="1" start="9">
-      <li>Añadir nuevos Héroers:</li>
-    </ol>
-    <p>Para añadir nuevos héroes solo necesitamos un formulario para añadirlos. Para ello en la plantilla heroes.component.html añadiremos el siguiente fragmento de código:</p>
-    <pre><code>&lt;div>
-  &lt;label>Hero name:
-    &lt;input #heroName />
-  &lt;/label>
-  &lt;!-- (click) passes input value to add() and then clears the input -->
-  &lt;button (click)="add(heroName.value); heroName.value=''">
-        add
-  &lt;button>
-&lt;div></code></pre>
-<p>Ahora debemos poner una resputa para el evento click, para ello dentro del heroes.component.ts añadiremos el siguiente fragmento de código:</p>
-<pre><code>add(name: string): void {
-  name = name.trim();
-  if (!name) { return; }
-  this.heroService.addHero({ name } as Hero)
-    .subscribe(hero => {
-      this.heroes.push(hero);
-    });
-}</code></pre>
-<p>Cuando el nombre no esta vacio, el controlador crea un nuevo objeto y lo pasa al método services.HeroIdAddHero(). Cuando el héroe se guarda correctamente la llamada recibe el nuevo héroe y lo instar en la lista para que pueda ser visto. Para ello dentro del hero.service.ts añade el siguiente código:</p>
-<pre><code>/** POST: add a new hero to the server */
-  addHero (hero: Hero): Observable&lt;Hero> {
-    return this.http.post&lt;Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
-      catchError(this.handleError&lt;Hero>('addHero'))
-    );
-  }</code></pre>
-  <ol type="1" start="10">
-    <li>Eliminar Héroers:</li>
-  </ol>
-  <p>Ahora debemos de añadir un botón al lado de cada héroe para que pueda ser eliminado. Lo primero es añadir ese botón dentro del heroes.component.html, agregalo justo después del &lt;a>  routerLink="/detail/{{hero.id}}">
-    &lt;span class="badge">{{hero.id}}&lt;span> {{hero.name}}
-  &lt;/a> </p>
-  <pre><code>&lt;button class="delete" title="delete hero"
-    (click)="delete(hero)">x&lt;/button></code></pre>
-  <p>Ahora agregaremos CSS para que el botón se vea de forma correcta dentro de la lista, para ello dentro del heroes.component.css sustituye el CSS por el siguiente: </p>
-  <pre><code>/* HeroesComponent's private CSS styles */
-    .heroes {
-      margin: 0 0 2em 0;
-      list-style-type: none;
-      padding: 0;
-      width: 15em;
-    }
-    .heroes li {
-      position: relative;
-      cursor: pointer;
-      background-color: #EEE;
-      margin: .5em;
-      padding: .3em 0;
-      height: 1.6em;
-      border-radius: 4px;
-    }
-    
-    .heroes li:hover {
-      color: #607D8B;
-      background-color: #DDD;
-      left: .1em;
-    }
-    
-    .heroes a {
-      color: #333;
-      text-decoration: none;
-      position: relative;
-      display: block;
-      width: 250px;
-    }
-    
-    .heroes a:hover {
-      color:#607D8B;
-    }
-    
-    .heroes .badge {
-      display: inline-block;
-      font-size: small;
-      color: white;
-      padding: 0.8em 0.7em 0 0.7em;
-      background-color:#405061;
-      line-height: 1em;
-      position: relative;
-      left: -1px;
-      top: -4px;
-      height: 1.8em;
-      min-width: 16px;
-      text-align: right;
-      margin-right: .8em;
-      border-radius: 4px 0 0 4px;
-    }
-    
-    button {
-      background-color: #eee;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      cursor: hand;
-      font-family: Arial;
-    }
-    
-    button:hover {
-      background-color: #cfd8dc;
-    }
-    
-    button.delete {
-      position: relative;
-      left: 194px;
-      top: -32px;
-      background-color: gray !important;
-      color: white;
-    }</code></pre>
-    <p>Ahora debemos de agregar el controlador a la clase del componente delete(), por ello dentro del heroes.component.ts añade:</p>
-    <pre><code>delete(hero: Hero): void {
-      this.heroes = this.heroes.filter(h => h !== hero);
-      this.heroService.deleteHero(hero).subscribe();
-    }</code></pre>
-    <p>Aunque el componente delega la eliminación de héroes en el , sigue siendo responsable de actualizar su propia lista de héroes. El método del componente elimina inmediatamente el héroe a eliminar de esa lista, anticipando que el se realizará correctamente en el servidor <br/> Ahora en el hero.service.ts añada el siguiente código:</p>
-    <pre><code>/** DELETE: delete the hero from the server */
-      deleteHero (hero: Hero | number): Observable&lt;Hero> {
-        const id = typeof hero === 'number' ? hero : hero.id;
-        const url = `${this.heroesUrl}/${id}`;
-      
-        return this.http.delete&lt;Hero>(url, this.httpOptions).pipe(
-          tap(_ => this.log(`deleted hero id=${id}`)),
-          catchError(this.handleError&lt;Hero>('deleteHero'))
-        );
-      }</code></pre>
-      <ol type="1" start="11">
-        <li>Buscar héroers por su nombre:</li>
-      </ol>
-      <p>En este último ejercicio, aprenderemos a encadenar operadores para poder minimizar el número de solicitudes HTTP similares y consumir el ancho de banda de red de forma económica.<br/>En primer lugar necesitaremos agregar un método al archivo hero.service.ts</p>
-      <pre><code>/* GET heroes whose name contains search term */
-        searchHeroes(term: string): Observable&lt;Hero[]> {
-          if (!term.trim()) {
-            // if not search term, return empty hero array.
-            return of([]);
-          }
-          return this.http.get&lt;Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
-            tap(_ => this.log(`found heroes matching "${term}"`)),
-            catchError(this.handleError&lt;Hero[]>('searchHeroes', []))
-          );
-        }</code></pre>
-        <p>Este método nos devolverá una matriz con los resultados encontrados, o vacia en caso de no tener ningún resultado.<br/>Ahora necesitamos agegar en la plantilla dashboard.component.html un elemento de busqueda:</p>
-        <pre><code>&lt;h3>Top Heroes&lt;/h3>
-&lt;div class="grid grid-pad">
- &lt;a *ngFor="let hero of heroes" class="col-1-4"
-    routerLink="/detail/{{hero.id}}">
-  &lt;div class="module hero">
-   &lt;h4>{{hero.name}}&lt;h4>
-  &lt;div>
- &lt;a>
-&lt;div>
-          
-&lt;app-hero-search>&lt;/app-hero-search></code></pre>
-<p>Para que esto funcione necesitaremos tener un componente llamado app-hero-search y para ello dentro de la consola ejecutaremos el siguiente comando para crearlo:</p>
-<pre><code>ng generate component hero-search</code></pre>
-<p>En primer lugar dentro de la plantalla generada hero-search.component.html sustituiremos el código por el siguiente:</p>
-<pre><code>&lt;div id="search-component">
-  &lt;h4>&lt;label for="search-box">Hero Search&lt;label>&lt;/4>
-
-  &lt;input #searchBox id="search-box" (input)="search(searchBox.value)" />
-
- &lt;ul class="search-result">
-  &lt;li *ngFor="let hero of heroes$ | async" >
-   &lt;a routerLink="/detail/{{hero.id}}">
-      {{hero.name}}
-   &lt;a>
-  &lt;li>
- &lt;ul>
-&lt;div></code></pre>
-<p>Ahora agregaremos el CSS dentro del .hero-search.component.css necesario para que se vea bien:</p>
-<pre><code>/* HeroSearch private styles */
-  .search-result li {
-    border-bottom: 1px solid gray;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-    width: 195px;
-    height: 16px;
-    padding: 5px;
-    background-color: white;
-    cursor: pointer;
-    list-style-type: none;
-  }
-  
-  .search-result li:hover {
-    background-color: #607D8B;
-  }
-  
-  .search-result li a {
-    color: #888;
-    display: block;
-    text-decoration: none;
-  }
-  
-  .search-result li a:hover {
-    color: white;
-  }
-  .search-result li a:active {
-    color: white;
-  }
-  #search-box {
-    width: 200px;
-    height: 20px;
-  }
-  
-  
-  ul.search-result {
-    margin-top: 0;
-    padding-left: 0;
-  }</code></pre>
-  <p>Ahora es hora de modificar la clase generada, para ello dentro del hero-search.component.ts cambie el código por el siguiente:</p>
-  <pre><code>import { Component, OnInit } from '@angular/core';
-
-    import { Observable, Subject } from 'rxjs';
-    
-    import {
-       debounceTime, distinctUntilChanged, switchMap
-     } from 'rxjs/operators';
-    
-    import { Hero } from '../hero';
-    import { HeroService } from '../hero.service';
-    
-    @Component({
-      selector: 'app-hero-search',
-      templateUrl: './hero-search.component.html',
-      styleUrls: [ './hero-search.component.css' ]
-    })
-    export class HeroSearchComponent implements OnInit {
-      heroes$: Observable&lt;Hero[]>;
-      private searchTerms = new Subject&lt;string>();
-    
-      constructor(private heroService: HeroService) {}
-    
-      // Push a search term into the observable stream.
-      search(term: string): void {
-        this.searchTerms.next(term);
-      }
-    
-      ngOnInit(): void {
-        this.heroes$ = this.searchTerms.pipe(
-          // wait 300ms after each keystroke before considering the term
-          debounceTime(300),
-    
-          // ignore new term if same as previous term
-          distinctUntilChanged(),
-    
-          // switch to new search observable each time the term changes
-          switchMap((term: string) => this.heroService.searchHeroes(term)),
-        );
-      }
-    }</code></pre>
-    <p>Por último debemos definir serachTerms, para ello dentro del archivo anterior añadiremos al final el siguiente trozo de código:</p>
-    <pre><code>private searchTerms = new Subject&lt;string>();
-
-      // Push a search term into the observable stream.
-      search(term: string): void {
-        this.searchTerms.next(term);
-      }</code></pre>
-      <p>Para terminar debemos llamar al método desde la plantilla hero-search.component.html</p>
-      <pre><code>&lt;input #searchBox id="search-box" (input)="search(searchBox.value)" /></code></pre>
-      <p>Cada vez que el usuario escribe en el cuadro de texto, el enlace llama con el valor del cuadro de texto, un "término de búsqueda". Se convierte en un flujo constante de términos de búsqueda.<br/>Pasar un nuevo término de búsqueda directamente al después de cada pulsación de tecla de usuario crearía una cantidad excesiva de solicitudes HTTP, gravando los recursos del servidor y grabando a través de planes de datos. En su lugar, el método canaliza el observable a través de una secuencia de operadores RxJS que reducen el número de llamadas</p>
-
-      <p><strong>Prueba tu aplicación, pues esté será el resultado final de nuestro tutorial</strong></p>
+     
     </div>
   </section>
 
